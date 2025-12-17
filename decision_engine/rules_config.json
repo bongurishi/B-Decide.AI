@@ -1,0 +1,222 @@
+{
+  "version": "1.0",
+  "last_updated": "2024-01-01",
+  "description": "Dynamic fuzzy logic rules for B-Decide AI customer retention recommendations",
+  "rules": [
+    {
+      "id": "rule_001",
+      "name": "critical_new_customer",
+      "enabled": true,
+      "priority": 1,
+      "confidence": 0.95,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.70,
+          "max": 1.00
+        },
+        "tenure_months": {
+          "min": 0,
+          "max": 6
+        }
+      },
+      "action": "offer_20_percent_discount_and_premium_support",
+      "action_description": "Offer 20% discount for 6 months plus premium support upgrade"
+    },
+    {
+      "id": "rule_002",
+      "name": "critical_high_value",
+      "enabled": true,
+      "priority": 1,
+      "confidence": 0.93,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.75,
+          "max": 1.00
+        },
+        "monthly_charges": {
+          "min": 70,
+          "max": 150
+        }
+      },
+      "action": "offer_vip_retention_package",
+      "action_description": "Provide VIP retention package with dedicated account manager"
+    },
+    {
+      "id": "rule_003",
+      "name": "high_risk_short_tenure",
+      "enabled": true,
+      "priority": 2,
+      "confidence": 0.88,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.60,
+          "max": 0.80
+        },
+        "tenure_months": {
+          "min": 0,
+          "max": 12
+        }
+      },
+      "action": "offer_15_percent_discount",
+      "action_description": "Offer 15% discount for 3 months"
+    },
+    {
+      "id": "rule_004",
+      "name": "high_risk_low_engagement",
+      "enabled": true,
+      "priority": 2,
+      "confidence": 0.85,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.65,
+          "max": 0.85
+        },
+        "total_charges": {
+          "min": 0,
+          "max": 1000
+        }
+      },
+      "action": "offer_loyalty_rewards_program",
+      "action_description": "Enroll in loyalty rewards program with points and perks"
+    },
+    {
+      "id": "rule_005",
+      "name": "medium_risk_price_sensitive",
+      "enabled": true,
+      "priority": 3,
+      "confidence": 0.78,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.45,
+          "max": 0.65
+        },
+        "monthly_charges": {
+          "min": 60,
+          "max": 100
+        }
+      },
+      "action": "offer_10_percent_discount_or_upgrade",
+      "action_description": "Offer 10% discount or free service upgrade"
+    },
+    {
+      "id": "rule_006",
+      "name": "medium_risk_service_issues",
+      "enabled": true,
+      "priority": 3,
+      "confidence": 0.75,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.50,
+          "max": 0.70
+        },
+        "tenure_months": {
+          "min": 12,
+          "max": 36
+        }
+      },
+      "action": "schedule_account_review_call",
+      "action_description": "Schedule personalized account review call"
+    },
+    {
+      "id": "rule_007",
+      "name": "low_risk_long_tenure",
+      "enabled": true,
+      "priority": 4,
+      "confidence": 0.70,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.20,
+          "max": 0.45
+        },
+        "tenure_months": {
+          "min": 36,
+          "max": 100
+        }
+      },
+      "action": "send_appreciation_email_with_benefits",
+      "action_description": "Send appreciation email highlighting exclusive benefits"
+    },
+    {
+      "id": "rule_008",
+      "name": "low_risk_loyal_customer",
+      "enabled": true,
+      "priority": 5,
+      "confidence": 0.65,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.0,
+          "max": 0.30
+        },
+        "total_charges": {
+          "min": 3000,
+          "max": 10000
+        }
+      },
+      "action": "invite_to_referral_program",
+      "action_description": "Invite to referral program with rewards"
+    },
+    {
+      "id": "rule_009",
+      "name": "monitor_only",
+      "enabled": true,
+      "priority": 6,
+      "confidence": 0.60,
+      "conditions": {
+        "churn_probability": {
+          "min": 0.0,
+          "max": 0.20
+        }
+      },
+      "action": "continue_standard_service",
+      "action_description": "Continue standard service with regular monitoring"
+    }
+  ],
+  "action_catalog": {
+    "offer_20_percent_discount_and_premium_support": {
+      "category": "aggressive_retention",
+      "estimated_cost": 500,
+      "expected_retention_lift": 0.45
+    },
+    "offer_vip_retention_package": {
+      "category": "aggressive_retention",
+      "estimated_cost": 800,
+      "expected_retention_lift": 0.50
+    },
+    "offer_15_percent_discount": {
+      "category": "moderate_retention",
+      "estimated_cost": 300,
+      "expected_retention_lift": 0.35
+    },
+    "offer_loyalty_rewards_program": {
+      "category": "moderate_retention",
+      "estimated_cost": 200,
+      "expected_retention_lift": 0.30
+    },
+    "offer_10_percent_discount_or_upgrade": {
+      "category": "light_retention",
+      "estimated_cost": 150,
+      "expected_retention_lift": 0.25
+    },
+    "schedule_account_review_call": {
+      "category": "light_retention",
+      "estimated_cost": 50,
+      "expected_retention_lift": 0.20
+    },
+    "send_appreciation_email_with_benefits": {
+      "category": "engagement",
+      "estimated_cost": 10,
+      "expected_retention_lift": 0.10
+    },
+    "invite_to_referral_program": {
+      "category": "engagement",
+      "estimated_cost": 25,
+      "expected_retention_lift": 0.08
+    },
+    "continue_standard_service": {
+      "category": "monitoring",
+      "estimated_cost": 0,
+      "expected_retention_lift": 0.0
+    }
+  }
+}
+
