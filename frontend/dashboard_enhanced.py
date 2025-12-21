@@ -290,7 +290,8 @@ class EnhancedChurnDashboard:
                                 'churn_probability': float(churn_probs[i]),
                                 'tenure_months': float(df.iloc[i].get('tenure', 0)),
                                 'monthly_charges': float(df.iloc[i].get('MonthlyCharges', 0)),
-                                'total_charges': float(df.iloc[i].get('TotalCharges', 0))
+                                'total_charges ' : float(str(df.iloc[i].get('TotalCharges', '0')).strip() or 0.0)
+
                             }
                             customer_features.append(features)
                         
@@ -565,5 +566,6 @@ class EnhancedChurnDashboard:
 if __name__ == "__main__":
     dashboard = EnhancedChurnDashboard()
     dashboard.run()
+
 
 
