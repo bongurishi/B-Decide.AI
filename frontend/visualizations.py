@@ -190,7 +190,7 @@ class ChurnVisualizations:
             margin=dict(t=80, b=60, l=60, r=40)
         )
         
-        fig.update_yaxis(autorange="reversed")  # Lower priority number = higher priority
+        fig.update_yaxes(autorange="reversed") # Lower priority number = higher priority
         
         return fig
     
@@ -404,4 +404,5 @@ if __name__ == "__main__":
     print(f"\n✓ Summary Metrics:")
     for key, value in metrics.items():
         print(f"  • {key}: {value}")
+
 
