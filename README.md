@@ -547,14 +547,35 @@ For questions, issues, or suggestions:
 - [ ] Multi-tenant support
 
 ---
+### Screenshots
+<img width="1782" height="861" alt="image" src="https://github.com/user-attachments/assets/3e7a4790-1874-4299-85dc-e972bbb4ac0f" />
+<img width="1919" height="881" alt="image" src="https://github.com/user-attachments/assets/3aad950a-2469-4ca5-8970-34b0efe24d5f" />
+<img width="1630" height="882" alt="image" src="https://github.com/user-attachments/assets/0874e6c5-0d91-4c63-9810-7ddc7c27cb85" />
+<img width="505" height="742" alt="image" src="https://github.com/user-attachments/assets/3d728c08-ffd7-4665-abdc-f3f697c0a066" />
+<img width="1844" height="786" alt="image" src="https://github.com/user-attachments/assets/05329767-90e6-45e7-97fa-680c1743afaf" />
+<img width="1919" height="903" alt="image" src="https://github.com/user-attachments/assets/2b5cd513-80a7-4c07-ac28-f2710f327e6c" />
+<img width="1919" height="885" alt="image" src="https://github.com/user-attachments/assets/22033b2b-e749-4424-b118-e03725679ca1" />
+<img width="1919" height="913" alt="image" src="https://github.com/user-attachments/assets/d4dcba70-7998-45cb-be9d-e043cbc04ec1" />
+<img width="1919" height="841" alt="image" src="https://github.com/user-attachments/assets/f3ceb37a-3a6b-4ee8-9086-b590b7fd3f70" />
+
+-------
+
+##  Live Demo (4-Minutes Walkthrough)
+
+▶️ Watch the full working demo of B-Decide.AI:
+[Click to view demo video](https://docs.google.com/videos/d/1h_ET4tEAACzyGXqCG61UxxEVG1O4w3xU-MOxXw6BO2s/edit?usp=sharing)
 
 **Made with ❤️ for better business decisions**
 
 ⭐ **Star this repo** if you find it useful!
 
 
-#*powered by*#
-@ Bongu Rishi  ## The founder of *B* ##
+Author
+
+Bongu Rishi
+AI  Decision Intelligence Engineer
+Brand: B My Blood • My Legacy • My Brand
 bogurishi07@gmail.com
+
 
 
