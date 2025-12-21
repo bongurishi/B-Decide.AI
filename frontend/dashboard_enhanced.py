@@ -274,8 +274,8 @@ class EnhancedChurnDashboard:
                                     'churn_probability': float(prob),
                                     'tenure_months': float(customer_row.get('tenure', 0)),
                                     'monthly_charges': float(customer_row.get('MonthlyCharges', 0)),
-                                    'total_charges': float(customer_row.get('TotalCharges', 0))
-                                }
+                                   'total_charges ': float(customer_row.get('TotalCharges', '0').strip() or 0.0)
+ }
                                 rec = self.dynamic_rules.get_recommendation(features)
                                 rec['risk_level'] = self.batch_explainer._determine_risk_level(float(prob))
                                 recommendations.append(rec)
@@ -565,4 +565,5 @@ class EnhancedChurnDashboard:
 if __name__ == "__main__":
     dashboard = EnhancedChurnDashboard()
     dashboard.run()
+
 
