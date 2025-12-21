@@ -1,3 +1,10 @@
+### B-Decide AI — AI-Powered Decision Intelligence Platform
+
+My Blood • My Legacy • My Brand
+
+🔗 Live Demo: https://b-decide-ai.streamlit.app/
+
+
 # 🎯 B-Decide AI
 
 **Decision Intelligence SaaS Platform for Customer Churn Prediction & Retention**
@@ -576,6 +583,7 @@ Bongu Rishi
 AI  Decision Intelligence Engineer
 Brand: B My Blood • My Legacy • My Brand
 bogurishi07@gmail.com
+
 
 
 
