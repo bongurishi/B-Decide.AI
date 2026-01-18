@@ -23,7 +23,7 @@ from frontend.intro import render_intro
 # Page configuration
 st.set_page_config(
     page_title="B-Decide AI - Customer Churn Intelligence",
-    page_icon="🎯",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -126,7 +126,7 @@ class ChurnDashboard:
     
     def render_header(self):
         """Render dashboard header"""
-        st.markdown('<div class="main-header">🎯 B-Decide AI</div>', unsafe_allow_html=True)
+        st.markdown('<div class="main-header"> B-Decide AI</div>', unsafe_allow_html=True)
         st.markdown(
             '<div class="brand-meaning">B = MyBlood, MyBrand, MyLegacy</div>',
             unsafe_allow_html=True
@@ -144,17 +144,17 @@ class ChurnDashboard:
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
             if st.session_state.get('model_loaded', False):
-                st.success("✅ Models Loaded Successfully")
+                st.success(" Models Loaded Successfully")
             else:
-                st.error("❌ Models Not Loaded - Please train the model first")
+                st.error(" Models Not Loaded - Please train the model first")
     
     def render_sidebar(self):
         """Render sidebar with navigation and settings"""
-        st.sidebar.title("📊 Navigation")
+        st.sidebar.title(" Navigation")
         
         page = st.sidebar.radio(
             "Select Page",
-            ["🏠 Home", "📈 Single Prediction", "📊 Batch Analysis", "ℹ️ About"]
+            [" Home", " Single Prediction", " Batch Analysis", " About"]
         )
         
         st.sidebar.markdown("---")
@@ -172,7 +172,7 @@ class ChurnDashboard:
         )
         
         st.sidebar.markdown("---")
-        st.sidebar.markdown("### 📖 Quick Guide")
+        st.sidebar.markdown("###  Quick Guide")
         st.sidebar.info("""
         **How to Use:**
         1. Train model or load existing
@@ -185,26 +185,26 @@ class ChurnDashboard:
     
     def render_home(self):
         """Render home page with overview"""
-        st.header("🏠 Welcome to B-Decide AI")
+        st.header(" Welcome to B-Decide AI")
         
         col1, col2 = st.columns(2)
         
         with col1:
-            st.subheader("🎯 What We Do")
+            st.subheader(" What We Do")
             st.markdown("""
             B-Decide AI is an advanced **Decision Intelligence Platform** that helps 
             businesses predict customer churn and take proactive retention actions.
             
             **Key Features:**
-            - 🤖 **ML-Powered Predictions**: XGBoost-based churn prediction
-            - 🧠 **Fuzzy Logic Engine**: Smart recommendation system
-            - 💬 **Natural Language Explanations**: Clear, actionable insights
-            - 📊 **Interactive Dashboard**: Beautiful visualizations
-            - 🚀 **Production Ready**: REST API with Docker support
+            -  **ML-Powered Predictions**: XGBoost-based churn prediction
+            -  **Fuzzy Logic Engine**: Smart recommendation system
+            -  **Natural Language Explanations**: Clear, actionable insights
+            -  **Interactive Dashboard**: Beautiful visualizations
+            -  **Production Ready**: REST API with Docker support
             """)
         
         with col2:
-            st.subheader("📈 Platform Capabilities")
+            st.subheader(" Platform Capabilities")
             
             # Create metrics cards
             metric_col1, metric_col2 = st.columns(2)
@@ -219,28 +219,28 @@ class ChurnDashboard:
         st.markdown("---")
         
         # Quick stats
-        st.subheader("🔍 How It Works")
+        st.subheader(" How It Works")
         
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.markdown("### 1️⃣ Predict")
+            st.markdown("### 1️ Predict")
             st.info("Upload customer data and get churn probability predictions using our trained ML model.")
         
         with col2:
-            st.markdown("### 2️⃣ Recommend")
+            st.markdown("### 2️ Recommend")
             st.info("Get personalized retention strategies based on fuzzy logic rules and customer attributes.")
         
         with col3:
-            st.markdown("### 3️⃣ Explain")
+            st.markdown("### 3️ Explain")
             st.info("Receive clear, natural language explanations for all predictions and recommendations.")
     
     def render_single_prediction(self):
         """Render single customer prediction page"""
-        st.header("📈 Single Customer Prediction")
+        st.header(" Single Customer Prediction")
         
         if not st.session_state.get('model_loaded', False):
-            st.warning("⚠️ Please train the model first before making predictions.")
+            st.warning(" Please train the model first before making predictions.")
             return
         
         st.markdown("Enter customer information to get churn prediction and personalized recommendations.")
@@ -266,7 +266,7 @@ class ChurnDashboard:
                 tech_support = st.selectbox("Tech Support", ["Yes", "No", "No internet service"])
                 streaming_tv = st.selectbox("Streaming TV", ["Yes", "No", "No internet service"])
             
-            submitted = st.form_submit_button("🔮 Predict Churn")
+            submitted = st.form_submit_button(" Predict Churn")
         
         if submitted:
             # Create customer data
@@ -310,7 +310,7 @@ class ChurnDashboard:
                 
                 # Display results
                 st.markdown("---")
-                st.subheader("🎯 Prediction Results")
+                st.subheader(" Prediction Results")
                 
                 # Metrics
                 col1, col2, col3, col4 = st.columns(4)
@@ -328,7 +328,7 @@ class ChurnDashboard:
                     st.metric("Confidence", f"{recommendation['confidence']:.1%}")
                 
                 with col4:
-                    priority_emoji = "🔴" if recommendation['priority'] <= 2 else "🟡" if recommendation['priority'] <= 4 else "🟢"
+                    priority_emoji = "" if recommendation['priority'] <= 2 else "" if recommendation['priority'] <= 4 else ""
                     st.metric("Priority", f"{priority_emoji} {recommendation['priority']}")
                 
                 # Gauge chart for churn probability
@@ -358,11 +358,11 @@ class ChurnDashboard:
                 st.plotly_chart(fig, use_container_width=True)
                 
                 # Recommendation
-                st.subheader("💡 Recommended Action")
+                st.subheader(" Recommended Action")
                 st.success(recommendation['action_description'])
                 
                 # Explanation
-                st.subheader("📝 Detailed Explanation")
+                st.subheader(" Detailed Explanation")
                 st.text_area("Analysis", explanation, height=300)
                 
             except Exception as e:
@@ -370,10 +370,10 @@ class ChurnDashboard:
     
     def render_batch_analysis(self):
         """Render batch analysis page"""
-        st.header("📊 Batch Customer Analysis")
+        st.header(" Batch Customer Analysis")
         
         if not st.session_state.get('model_loaded', False):
-            st.warning("⚠️ Please train the model first before making predictions.")
+            st.warning(" Please train the model first before making predictions.")
             return
         
         st.markdown("Upload a CSV file with customer data for batch predictions and analysis.")
@@ -390,14 +390,14 @@ class ChurnDashboard:
                 # Read CSV
                 df = pd.read_csv(uploaded_file)
                 
-                st.success(f"✅ File uploaded successfully: {len(df)} customers")
+                st.success(f" File uploaded successfully: {len(df)} customers")
                 
                 # Show data preview
-                with st.expander("📋 Data Preview"):
+                with st.expander(" Data Preview"):
                     st.dataframe(df.head(10))
                 
                 # Process button
-                if st.button("🚀 Analyze All Customers"):
+                if st.button(" Analyze All Customers"):
                     with st.spinner("Analyzing customers..."):
                         # Store customer IDs
                         customer_ids = df['customerID'].tolist() if 'customerID' in df.columns else [f"customer_{i}" for i in range(len(df))]
@@ -419,7 +419,7 @@ class ChurnDashboard:
                     churn_probs = st.session_state['churn_probs']
                     
                     st.markdown("---")
-                    st.subheader("📊 Analysis Results")
+                    st.subheader(" Analysis Results")
                     
                     # Summary metrics
                     col1, col2, col3, col4 = st.columns(4)
@@ -472,7 +472,7 @@ class ChurnDashboard:
                         st.plotly_chart(fig2, use_container_width=True)
                     
                     # Action distribution
-                    st.subheader("📋 Recommended Actions")
+                    st.subheader("Recommended Actions")
                     action_counts = recommendations_df['action_description'].value_counts()
                     fig3 = px.bar(
                         x=action_counts.values,
@@ -486,7 +486,7 @@ class ChurnDashboard:
                     st.plotly_chart(fig3, use_container_width=True)
                     
                     # Results table
-                    st.subheader("📄 Detailed Results")
+                    st.subheader(" Detailed Results")
                     
                     # Filter options
                     filter_col1, filter_col2 = st.columns(2)
@@ -516,7 +516,7 @@ class ChurnDashboard:
                     # Export button
                     csv = filtered_df.to_csv(index=False)
                     st.download_button(
-                        label="📥 Download Results (CSV)",
+                        label=" Download Results (CSV)",
                         data=csv,
                         file_name="churn_analysis_results.csv",
                         mime="text/csv"
@@ -527,15 +527,15 @@ class ChurnDashboard:
     
     def render_about(self):
         """Render about page"""
-        st.header("ℹ️ About B-Decide AI")
+        st.header(" About B-Decide AI")
         
         st.markdown("""
-        ## 🎯 B-Decide AI Platform
+        ##  B-Decide AI Platform
         
         **Version:** 1.0.0  
         **Built with:** Python 3.11+
         
-        ### 📚 Technology Stack
+        ###  Technology Stack
         
         - **Machine Learning:** XGBoost, Scikit-learn
         - **Decision Engine:** Fuzzy Logic Rules
@@ -544,7 +544,7 @@ class ChurnDashboard:
         - **Frontend:** Streamlit
         - **Deployment:** Docker
         
-        ### 🏗️ Architecture
+        ###  Architecture
         
         ```
         ├── data/              # Data preprocessing
@@ -555,7 +555,7 @@ class ChurnDashboard:
         └── frontend/          # Streamlit dashboard
         ```
         
-        ### 📊 Model Performance
+        ###  Model Performance
         
         The XGBoost model achieves:
         - **Accuracy:** ~85-90%
@@ -563,15 +563,15 @@ class ChurnDashboard:
         - **Recall:** ~75-80%
         - **ROC-AUC:** ~88-92%
         
-        ### 🔒 Data Privacy
+        ###  Data Privacy
         
         All data processing is done locally. No customer data is sent to external services.
         
-        ### 📖 Documentation
+        ###  Documentation
         
         For detailed documentation, please refer to the README.md file in the project repository.
         
-        ### 👨‍💻 Development
+        ###  Development
         
         This platform is production-ready and can be deployed using Docker or traditional methods.
         
@@ -593,17 +593,18 @@ class ChurnDashboard:
         self.render_header()
         page = self.render_sidebar()
         
-        if "🏠 Home" in page:
+        if " Home" in page:
             self.render_home()
-        elif "📈 Single Prediction" in page:
+        elif " Single Prediction" in page:
             self.render_single_prediction()
-        elif "📊 Batch Analysis" in page:
+        elif " Batch Analysis" in page:
             self.render_batch_analysis()
-        elif "ℹ️ About" in page:
+        elif " About" in page:
             self.render_about()
 
 
 if __name__ == "__main__":
     dashboard = ChurnDashboard()
     dashboard.run()
+
 
