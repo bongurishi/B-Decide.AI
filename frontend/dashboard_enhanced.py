@@ -22,7 +22,7 @@ from frontend.intro import render_intro
 # Page configuration
 st.set_page_config(
     page_title="B-Decide AI - Enhanced Dashboard",
-    page_icon="🎯",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -142,7 +142,7 @@ class EnhancedChurnDashboard:
     
     def render_header(self):
         """Render dashboard header"""
-        st.markdown('<div class="main-header">🎯 B-Decide AI</div>', unsafe_allow_html=True)
+        st.markdown('<div class="main-header"> B-Decide AI</div>', unsafe_allow_html=True)
         st.markdown(
             '<div class="brand-meaning">B = MyBlood, MyBrand, MyLegacy</div>',
             unsafe_allow_html=True
@@ -160,39 +160,39 @@ class EnhancedChurnDashboard:
         col1, col2, col3 = st.columns([1, 1, 1])
         with col1:
             if st.session_state.get('model_loaded', False):
-                st.success("✅ ML Model Ready")
+                st.success(" ML Model Ready")
             else:
-                st.error("❌ Model Not Loaded")
+                st.error(" Model Not Loaded")
         
         with col2:
             if st.session_state.get('dynamic_rules_loaded', False):
-                st.success("✅ Dynamic Rules Active")
+                st.success(" Dynamic Rules Active")
             else:
-                st.warning("⚠️ Using Default Rules")
+                st.warning(" Using Default Rules")
         
         with col3:
-            st.info("🚀 Enhanced Mode v2.0")
+            st.info(" Enhanced Mode v2.0")
     
     def render_sidebar(self):
         """Render sidebar navigation"""
-        st.sidebar.title("📊 Navigation")
+        st.sidebar.title(" Navigation")
         
         page = st.sidebar.radio(
             "Select Page",
             [
-                "🏠 Home",
-                "📈 Single Prediction",
-                "📊 Batch Analysis (Enhanced)",
-                "📋 Action Analytics",
-                "⚙️ Rules Manager",
-                "ℹ️ About"
+                " Home",
+                " Single Prediction",
+                " Batch Analysis (Enhanced)",
+                " Action Analytics",
+                " Rules Manager",
+                " About"
             ]
         )
         
         st.sidebar.markdown("---")
         
         # Settings
-        st.sidebar.markdown("### ⚙️ Settings")
+        st.sidebar.markdown("###  Settings")
         st.sidebar.number_input(
             "Churn Threshold",
             min_value=0.0,
@@ -212,7 +212,7 @@ class EnhancedChurnDashboard:
         
         # Quick stats
         if st.session_state.get('dynamic_rules_loaded', False):
-            st.sidebar.markdown("### 📈 Rules Info")
+            st.sidebar.markdown("###  Rules Info")
             stats = self.dynamic_rules.get_rule_statistics()
             st.sidebar.metric("Active Rules", stats['enabled_rules'])
             st.sidebar.metric("Config Version", stats['config_version'])
@@ -221,19 +221,19 @@ class EnhancedChurnDashboard:
     
     def render_batch_analysis_enhanced(self):
         """Enhanced batch analysis with full recommendations and explanations"""
-        st.header("📊 Enhanced Batch Analysis")
+        st.header(" Enhanced Batch Analysis")
         
         if not st.session_state.get('model_loaded', False):
-            st.warning("⚠️ Please train the model first.")
+            st.warning(" Please train the model first.")
             return
         
         st.markdown("""
         Upload a CSV file to get:
-        - ✅ Churn predictions for all customers
-        - ✅ Personalized recommendations with explanations
-        - ✅ Interactive analytics and visualizations
-        - ✅ Executive summary report
-        - ✅ Downloadable results with full details
+        -  Churn predictions for all customers
+        -  Personalized recommendations with explanations
+        -  Interactive analytics and visualizations
+        -  Executive summary report
+        -  Downloadable results with full details
         """)
         
         # File upload
@@ -247,14 +247,14 @@ class EnhancedChurnDashboard:
             try:
                 # Read CSV
                 df = pd.read_csv(uploaded_file)
-                st.success(f"✅ Loaded {len(df)} customers")
+                st.success(f" Loaded {len(df)} customers")
                 
                 # Preview
-                with st.expander("📋 Data Preview"):
+                with st.expander(" Data Preview"):
                     st.dataframe(df.head(10))
                 
                 # Analysis button
-                if st.button("🚀 Run Complete Analysis", type="primary"):
+                if st.button(" Run Complete Analysis", type="primary"):
                     with st.spinner("Analyzing customers..."):
                         # Get customer IDs
                         customer_ids = df['customerID'].tolist() if 'customerID' in df.columns else [f"customer_{i}" for i in range(len(df))]
@@ -314,14 +314,14 @@ class EnhancedChurnDashboard:
                         st.session_state['enhanced_report'] = report_df
                         st.session_state['churn_probs'] = churn_probs
                         
-                        st.success("✅ Analysis complete!")
+                        st.success(" Analysis complete!")
                 
                 # Display results
                 if 'enhanced_report' in st.session_state:
                     report_df = st.session_state['enhanced_report']
                     
                     st.markdown("---")
-                    st.subheader("📈 Analysis Results")
+                    st.subheader(" Analysis Results")
                     
                     # Summary metrics
                     metrics = self.viz.create_summary_metrics_cards(report_df)
@@ -347,10 +347,10 @@ class EnhancedChurnDashboard:
                     
                     # Tabs for different views
                     tab1, tab2, tab3, tab4 = st.tabs([
-                        "📊 Visualizations",
-                        "📋 Detailed Results",
-                        "📝 Executive Summary",
-                        "💾 Export"
+                        " Visualizations",
+                        " Detailed Results",
+                        " Executive Summary",
+                        " Export"
                     ])
                     
                     with tab1:
@@ -430,7 +430,7 @@ class EnhancedChurnDashboard:
                         st.code(summary, language=None)
                         
                         # Top priority customers
-                        st.subheader("🔴 Top Priority Customers (Immediate Action Required)")
+                        st.subheader(" Top Priority Customers (Immediate Action Required)")
                         urgent_df = report_df[report_df['urgency'] == 'Urgent'].head(10)
                         if len(urgent_df) > 0:
                             for idx, row in urgent_df.iterrows():
@@ -457,7 +457,7 @@ class EnhancedChurnDashboard:
                         high_priority_df = report_df[report_df['priority'] <= 2]
                         csv_priority = high_priority_df.to_csv(index=False)
                         st.download_button(
-                            label="🔴 Download High Priority Only (CSV)",
+                            label=" Download High Priority Only (CSV)",
                             data=csv_priority,
                             file_name="bdecide_high_priority.csv",
                             mime="text/csv"
@@ -466,13 +466,13 @@ class EnhancedChurnDashboard:
                         # Summary text
                         summary = self.batch_explainer.generate_executive_summary(report_df)
                         st.download_button(
-                            label="📄 Download Executive Summary (TXT)",
+                            label=" Download Executive Summary (TXT)",
                             data=summary,
                             file_name="bdecide_executive_summary.txt",
                             mime="text/plain"
                         )
                         
-                        st.success("✅ All exports ready for download")
+                        st.success(" All exports ready for download")
                 
             except Exception as e:
                 st.error(f"Error processing file: {str(e)}")
@@ -481,10 +481,10 @@ class EnhancedChurnDashboard:
     
     def render_rules_manager(self):
         """Render rules management interface"""
-        st.header("⚙️ Fuzzy Logic Rules Manager")
+        st.header(" Fuzzy Logic Rules Manager")
         
         if not st.session_state.get('dynamic_rules_loaded', False):
-            st.warning("⚠️ Dynamic rules engine not loaded")
+            st.warning(" Dynamic rules engine not loaded")
             return
         
         st.markdown("""
@@ -504,22 +504,22 @@ class EnhancedChurnDashboard:
             st.metric("Config Version", stats['config_version'])
         
         # Reload button
-        if st.button("🔄 Reload Rules from Config File"):
+        if st.button(" Reload Rules from Config File"):
             with st.spinner("Reloading rules..."):
                 success = self.dynamic_rules.reload_rules()
                 if success:
-                    st.success("✅ Rules reloaded successfully!")
+                    st.success(" Rules reloaded successfully!")
                 else:
-                    st.error("❌ Failed to reload rules")
+                    st.error(" Failed to reload rules")
         
         # Display current rules
-        st.subheader("📋 Active Rules")
+        st.subheader(" Active Rules")
         
         if self.dynamic_rules.rules:
             for rule in self.dynamic_rules.rules:
                 with st.expander(f"Rule: {rule.name} (Priority: {rule.priority})"):
                     st.markdown(f"**ID:** `{rule.id}`")
-                    st.markdown(f"**Enabled:** {'✅ Yes' if rule.enabled else '❌ No'}")
+                    st.markdown(f"**Enabled:** {' Yes' if rule.enabled else ' No'}")
                     st.markdown(f"**Confidence:** {rule.confidence:.2f}")
                     st.markdown(f"**Action:** {rule.action_description}")
                     st.markdown("**Conditions:**")
@@ -527,7 +527,7 @@ class EnhancedChurnDashboard:
                         st.markdown(f"  • {param}: {constraints['min']} - {constraints['max']}")
         
         st.markdown("---")
-        st.info("💡 Tip: Edit `decision_engine/rules_config.json` to modify rules, then click Reload.")
+        st.info(" Tip: Edit `decision_engine/rules_config.json` to modify rules, then click Reload.")
     
     def run(self):
         """Main dashboard execution"""
@@ -542,22 +542,22 @@ class EnhancedChurnDashboard:
         self.render_header()
         page = self.render_sidebar()
         
-        if "🏠 Home" in page:
+        if " Home" in page:
             from frontend.dashboard import ChurnDashboard
             temp_dash = ChurnDashboard()
             temp_dash.render_home()
-        elif "📈 Single Prediction" in page:
+        elif " Single Prediction" in page:
             from frontend.dashboard import ChurnDashboard
             temp_dash = ChurnDashboard()
             temp_dash.render_single_prediction()
-        elif "📊 Batch Analysis" in page:
+        elif " Batch Analysis" in page:
             self.render_batch_analysis_enhanced()
-        elif "📋 Action Analytics" in page:
-            st.header("📋 Action Analytics")
+        elif " Action Analytics" in page:
+            st.header(" Action Analytics")
             st.info("Upload data in Batch Analysis to see detailed action analytics")
-        elif "⚙️ Rules Manager" in page:
+        elif " Rules Manager" in page:
             self.render_rules_manager()
-        elif "ℹ️ About" in page:
+        elif " About" in page:
             from frontend.dashboard import ChurnDashboard
             temp_dash = ChurnDashboard()
             temp_dash.render_about()
@@ -566,6 +566,7 @@ class EnhancedChurnDashboard:
 if __name__ == "__main__":
     dashboard = EnhancedChurnDashboard()
     dashboard.run()
+
 
 
 
