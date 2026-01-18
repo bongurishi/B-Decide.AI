@@ -5,7 +5,7 @@ My Blood • My Legacy • My Brand
 🔗 Live Demo: https://b-decide-ai.streamlit.app/
 
 
-# 🎯 B-Decide AI
+#  B-Decide AI
 
 **Decision Intelligence SaaS Platform for Customer Churn Prediction & Retention**
 
@@ -17,7 +17,7 @@ B-Decide AI is a comprehensive, production-ready Decision Intelligence platform 
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Features](#-features)
 - [Architecture](#-architecture)
@@ -33,39 +33,39 @@ B-Decide AI is a comprehensive, production-ready Decision Intelligence platform 
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🤖 Machine Learning
+###  Machine Learning
 - **XGBoost-based churn prediction** with 85-90% accuracy
 - Comprehensive feature engineering and preprocessing
 - Model persistence and versioning
 - Real-time prediction capabilities
 
-### 🧠 Fuzzy Logic Decision Engine
+###  Fuzzy Logic Decision Engine
 - **9 intelligent recommendation rules** based on customer attributes
 - Priority-based action recommendations
 - Confidence scoring for each recommendation
 - Customizable fuzzy membership functions
 
-### 💬 Natural Language Explanations
+###  Natural Language Explanations
 - **Human-readable explanations** for predictions
 - Context-aware insights generation
 - Batch analysis summaries
 - Multi-level risk categorization
 
-### 🌐 REST API (FastAPI)
+###  REST API (FastAPI)
 - **High-performance async API** endpoints
 - Swagger/OpenAPI documentation
 - Single and batch prediction support
 - CORS-enabled for web integration
 
-### 📊 Interactive Dashboard (Streamlit)
+###  Interactive Dashboard (Streamlit)
 - **Beautiful, responsive UI** with modern design
 - Real-time predictions and visualizations
 - CSV upload for batch analysis
 - Downloadable action plans and reports
 
-### 🐳 Production-Ready Deployment
+###  Production-Ready Deployment
 - **Docker containerization** with multi-stage builds
 - Docker Compose for orchestration
 - Health checks and auto-restart
@@ -73,7 +73,7 @@ B-Decide AI is a comprehensive, production-ready Decision Intelligence platform 
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 B-Decide.AI/
@@ -113,7 +113,7 @@ B-Decide.AI/
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -152,7 +152,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🎯 Quick Start
+##  Quick Start
 
 ### Step 1: Train the Model
 
@@ -365,7 +365,7 @@ curl -X POST http://localhost:8000/batch-predict \
 
 ---
 
-## 🐳 Docker Deployment
+##  Docker Deployment
 
 ### Using Docker Compose (Recommended)
 
@@ -425,7 +425,7 @@ docker run -p 8000:8000 -p 8501:8501 \
 
 ---
 
-## 🎓 Decision Rules
+##  Decision Rules
 
 ### Fuzzy Logic Rules Summary
 
@@ -468,7 +468,7 @@ python nlp/explainer.py
 
 ---
 
-## 📈 Scaling and Production
+##  Scaling and Production
 
 ### Performance Optimization
 
@@ -514,13 +514,13 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **IBM Telco Dataset** - Sample dataset for churn prediction
 - **XGBoost Team** - High-performance gradient boosting library
@@ -529,7 +529,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📞 Support
+##  Support
 
 For questions, issues, or suggestions:
 
@@ -539,7 +539,7 @@ For questions, issues, or suggestions:
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 ### Version 1.1 (Planned)
 - [ ] PostgreSQL integration for prediction history
@@ -569,12 +569,12 @@ For questions, issues, or suggestions:
 
 ##  Live Demo (4-Minutes Walkthrough)
 
-▶️ Watch the full working demo of B-Decide.AI:
+ Watch the full working demo of B-Decide.AI:
 [Click to view demo video](https://docs.google.com/videos/d/1h_ET4tEAACzyGXqCG61UxxEVG1O4w3xU-MOxXw6BO2s/edit?usp=sharing)
 
 **Made with ❤️ for better business decisions**
 
-⭐ **Star this repo** if you find it useful!
+ **Star this repo** if you find it useful!
 
 
 Author
@@ -583,6 +583,7 @@ Bongu Rishi
 AI  Decision Intelligence Engineer
 Brand: B My Blood • My Legacy • My Brand
 bogurishi07@gmail.com
+
 
 
 
