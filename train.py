@@ -21,7 +21,7 @@ def main():
     data_path = 'data/raw/telco_churn.csv'
     
     if not os.path.exists(data_path):
-        print("❌ Error: Dataset not found!")
+        print(" Error: Dataset not found!")
         print(f"\nPlease download the IBM Telco Customer Churn dataset and place it at:")
         print(f"  {data_path}")
         print("\nDataset available at:")
@@ -32,7 +32,7 @@ def main():
     
     try:
         # Train model
-        print(f"📂 Loading data from: {data_path}")
+        print(f" Loading data from: {data_path}")
         predictor, metrics = train_and_save_model(
             data_path=data_path,
             save_dir='models',
@@ -42,7 +42,7 @@ def main():
         
         # Print summary
         print("\n" + "="*70)
-        print("✅ TRAINING COMPLETE!")
+        print(" TRAINING COMPLETE!")
         print("="*70)
         print("\nModel Performance Metrics:")
         print(f"  • Accuracy:  {metrics['accuracy']:.4f}")
@@ -51,12 +51,12 @@ def main():
         print(f"  • F1 Score:  {metrics['f1_score']:.4f}")
         print(f"  • ROC-AUC:   {metrics['roc_auc']:.4f}")
         
-        print("\n📁 Files saved:")
+        print("\n Files saved:")
         print("  ✓ models/churn_model.pkl")
         print("  ✓ models/preprocessor.pkl")
         print("  ✓ models/feature_importance.csv")
         
-        print("\n🚀 Next Steps:")
+        print("\n Next Steps:")
         print("  1. Start the backend:  python backend/main.py")
         print("  2. Start the frontend: streamlit run frontend/dashboard.py")
         print("  3. Or use Docker:      docker-compose up")
@@ -64,7 +64,7 @@ def main():
         print("\n" + "="*70 + "\n")
         
     except Exception as e:
-        print(f"\n❌ Error during training: {str(e)}")
+        print(f"\n Error during training: {str(e)}")
         import traceback
         traceback.print_exc()
         sys.exit(1)
@@ -72,4 +72,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
